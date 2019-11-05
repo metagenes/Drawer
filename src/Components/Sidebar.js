@@ -17,7 +17,8 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Fade from '@material-ui/core/Fade';
-
+//searchbar
+import SearchBar from 'material-ui-search-bar';
 
 
 
@@ -75,9 +76,9 @@ const classes = useStyles();
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Persistent drawer
-          </Typography>
+          {/* <Typography variant="h6" noWrap>
+           Drawer
+          </Typography> */}
           {/* menubar here */}
           <Button aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick}>
   All Categories
@@ -112,6 +113,16 @@ const classes = useStyles();
   <MenuItem onClick={handleClose2}>2017</MenuItem>
 </Menu>
 {/* end menubar 2 */}
+{/* Searchbar */}
+<SearchBar
+      onChange={() => console.log('onChange')}
+      onRequestSearch={() => console.log('onRequestSearch')}
+      style={{
+        margin: '0 auto',
+        maxWidth: 800
+      }}
+    />
+
         </Toolbar>
       </AppBar>
       <Drawer
