@@ -19,6 +19,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Fade from '@material-ui/core/Fade';
 //searchbar
 import SearchBar from 'material-ui-search-bar';
+//modal
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 
 
@@ -143,6 +150,33 @@ const classes = useStyles();
         <List>
           {['Explore', 'History', 'Add Book'].map((text, index) => (
             <ListItem button key={text}>
+              {/* modal */}
+              <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            To subscribe to this website, please enter your email address here. We will send updates
+            occasionally.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Email Address"
+            type="email"
+            fullWidth
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={handleClose} color="primary">
+            Subscribe
+          </Button>
+        </DialogActions>
+      </Dialog>
+{/* // endmodal */}
               <ListItemText primary={text} />
             </ListItem>
           ))}

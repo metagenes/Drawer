@@ -62,73 +62,128 @@
 // }
 // export default Menu;
 
+//fix grid
+// import React from 'react';
+// import { makeStyles } from '@material-ui/core/styles';
+// import Grid from '@material-ui/core/Grid';
+// import Paper from '@material-ui/core/Paper';
+// import Typography from '@material-ui/core/Typography';
+// import ButtonBase from '@material-ui/core/ButtonBase';
+// import logo from './logo.svg';
+
+// const useStyles = makeStyles(theme => ({
+//   root: {
+//     flexGrow: 1,
+//   },
+//   paper: {
+//     padding: theme.spacing(2),
+//     margin: 'auto',
+//     maxWidth: 500,
+//   },
+//   image: {
+//     width: 128,
+//     height: 128,
+//   },
+//   img: {
+//     margin: 'auto',
+//     display: 'block',
+//     maxWidth: '100%',
+//     maxHeight: '100%',
+//   },
+// }));
+
+// export default function ComplexGrid() {
+//   const classes = useStyles();
+
+//   return (
+//     <div className={classes.root}>
+//       <Paper className={classes.paper}>
+//         <Grid container spacing={2}>
+//           <Grid item>
+//             <ButtonBase className={classes.image}>
+//               {/* <img className={logo.svg} alt="App-logo" src="/logo.svg" />  */}
+//               <img src={logo} className="App-logo" alt="logo" />
+//             </ButtonBase>
+//           </Grid>
+//           <Grid item xs={12} sm container>
+//             <Grid item xs container direction="column" spacing={2}>
+//               <Grid item xs>
+//                 <Typography gutterBottom variant="subtitle1">
+//                   Standard license
+//                 </Typography>
+//                 <Typography variant="body2" gutterBottom>
+//                   Full resolution 1920x1080 • JPEG
+//                 </Typography>
+//                 <Typography variant="body2" color="textSecondary">
+//                   ID: 1030114
+//                 </Typography>
+//               </Grid>
+//               <Grid item>
+//                 <Typography variant="body2" style={{ cursor: 'pointer' }}>
+//                   Remove
+//                 </Typography>
+//               </Grid>
+//             </Grid>
+//             <Grid item>
+//               <Typography variant="subtitle1">$19.00</Typography>
+//             </Grid>
+//           </Grid>
+//         </Grid>
+//       </Paper>
+//     </div>
+//   );
+// }
+
+//try card
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
-import logo from './logo.svg';
+import image from './logo.svg';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
+const useStyles = makeStyles({
+  card: {
+    maxWidth: 345,
   },
-  paper: {
-    padding: theme.spacing(2),
-    margin: 'auto',
-    maxWidth: 500,
+  media: {
+    height: 140,
   },
-  image: {
-    width: 128,
-    height: 128,
-  },
-  img: {
-    margin: 'auto',
-    display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
-  },
-}));
+});
 
-export default function ComplexGrid() {
+export default function MediaCard() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <Grid container spacing={2}>
-          <Grid item>
-            <ButtonBase className={classes.image}>
-              {/* <img className={logo.svg} alt="App-logo" src="/logo.svg" />  */}
-              <img src={logo} className="App-logo" alt="logo" />
-            </ButtonBase>
-          </Grid>
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
-                <Typography gutterBottom variant="subtitle1">
-                  Standard license
-                </Typography>
-                <Typography variant="body2" gutterBottom>
-                  Full resolution 1920x1080 • JPEG
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  ID: 1030114
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography variant="body2" style={{ cursor: 'pointer' }}>
-                  Remove
-                </Typography>
-              </Grid>
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle1">$19.00</Typography>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Paper>
-    </div>
+    <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia>
+          <img src={image} className="App-logo" alt="logo" />
+        </CardMedia>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            Lizard
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+            across all continents except Antarctica
+          </Typography>
+          
+        </CardContent>
+      </CardActionArea>
+      
+      <CardActions>
+        <Button size="small" color="primary">
+          Borrow
+        </Button>
+        <Button size="small" color="primary">
+          See Detail
+        </Button>
+      </CardActions>
+    </Card>
   );
 }
