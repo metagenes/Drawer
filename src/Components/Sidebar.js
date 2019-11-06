@@ -152,27 +152,33 @@ const classes = useStyles();
             <ListItem button key={text}>
               {/* modal */}
               <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+        <DialogTitle id="form-dialog-title">Add Book</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here. We will send updates
-            occasionally.
+            Please Add Book Detail!
           </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="Email Address"
-            type="email"
+            label="Book Name"
+            type="varchar"
             fullWidth
           />
+          <TextField
+          margin="dense"
+            id="desc"
+            label="Book Description"
+            type="varchar"
+            fullWidth
+            />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
           <Button onClick={handleClose} color="primary">
-            Subscribe
+            Add
           </Button>
         </DialogActions>
       </Dialog>
