@@ -6,7 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-// import Typography from '@material-ui/core/Typography';
+import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -26,7 +26,11 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-
+//avatar
+import Avatar from '@material-ui/core/Avatar';
+import Grid from '@material-ui/core/Grid';
+//logo
+import logo from './logo.svg';
 
 
 const Sidebar=() => {
@@ -147,28 +151,44 @@ const classes = useStyles();
         </IconButton>
         </div>
         <Divider />
-        <List>
-          {['Explore', 'History', 'Add Book'].map((text, index) => (
-            <ListItem button key={text}>
-              {/* modal */}
-              <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Add Book</DialogTitle>
+        {/* //avatar */}
+        <Grid container justify="center" alignItems="center">
+      <Avatar alt="logo" src={logo} className={classes.bigAvatar} />
+      {/* <img src={logo} className="App-logo" alt="logo" /> */}
+      
+    </Grid>
+    <Typography>Yudi Prayoga</Typography>
+    {/* end avatar */}
+        <List> 
+           {/* {['Explore', 'History', 'Add Book'].map((text, index) => (
+            <ListItem button key={text}>  */}
+                {/* <ListItem button>
+                  Add Book */}
+{/* // modal */}
+<ListItem button>
+Add Book
+ <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                <DialogTitle id="form-dialog-title">Add Book</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            Please Add Book Detail!
-          </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
-            id="name"
-            label="Book Name"
+            id="url image"
+            label="Url image"
             type="varchar"
             fullWidth
           />
           <TextField
           margin="dense"
+            id="Title"
+            label="Title"
+            type="varchar"
+            fullWidth
+            />
+             <TextField
+          margin="dense"
             id="desc"
-            label="Book Description"
+            label="Description"
             type="varchar"
             fullWidth
             />
@@ -181,12 +201,18 @@ const classes = useStyles();
             Add
           </Button>
         </DialogActions>
-      </Dialog>
-{/* // endmodal */}
-              <ListItemText primary={text} />
+</Dialog>   
+      </ListItem>
+              {/* <ListItemText primary={text} /> */}
+            {/* </ListItem> */}
+            <ListItem button>
+              Explore
             </ListItem>
-          ))}
+            <ListItem button>
+              History
+            </ListItem>
         </List>
+        
 
       </Drawer>
       <main

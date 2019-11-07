@@ -144,13 +144,24 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import image from './logo.svg';
+import {Link} from 'react-router-dom'
+
+// import image from './logo.svg';
+//new page
+import { BrowserRouter as Router } from 'react-router-dom'
+// import Slider from './Detail'
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 345,
+    // maxWidth: 345,
+    align: 'center',
+    maxWidth: 240,
+    // maxHeight: 500,
   },
   media: {
+    // align="center",
+    align: 'justify',
+    // align: 'center',
     height: 140,
   },
 });
@@ -159,27 +170,36 @@ export default function MediaCard() {
   const classes = useStyles();
 
   return (
+    
     <Card className={classes.card}>
+      <Typography>List Book</Typography>
       <CardActionArea>
         <CardMedia>
-          <img src={image} className="App-logo" alt="logo" />
+          {/* <img src={image} className="App-logo" alt="logo" /> */}
+          <img itemprop="image" src="//covers.openlibrary.org/b/id/542870-M.jpg" class="cover" alt="Cover of: Pieces of Light | Adam Thorpe"></img>
         </CardMedia>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            Pieces Of Light
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+          The incident with the gorilla remained with my mother for the rest of her life, as certain tiny wounds do on the face.
           </Typography>
           
         </CardContent>
       </CardActionArea>
       
       <CardActions>
-        <Button size="small" color="primary">
+        <Router>
+        <Button size="small" color="primary" component={Link} to='./Detail' >
           Borrow
-        </Button>
+          {/* new link */}
+          {/* <ListItem button component={Link} to="/"> */}
+          {/* <Redirect to="/your-new-location" push /> */}
+         {/* <NavLink to="/Detail">Forgot Detail?</NavLink> */}
+
+        </Button> 
+        </Router>
         <Button size="small" color="primary">
           See Detail
         </Button>
