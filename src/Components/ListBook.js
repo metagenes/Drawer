@@ -5,35 +5,42 @@ import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid'
+
 
 //new page
 import { BrowserRouter as Router } from 'react-router-dom'
 const useStyles = makeStyles({
     card: {
-      // maxWidth: 345,
-      align: 'center',
-      maxWidth: 240,
-      // maxHeight: 500,
+      maxWidth: 250,
+      borderRadius: 10,
+      margin: 20
     },
-    media: {
-      // align="center",
-      // align-items: 'center',
-      // align: 'center',
-      height: 140,
+    root: {
+      flexGrow: 1
     },
+ 
+     
   });
 function Product(props) {
     const classes = useStyles();
+    const [spacing] = React.useState(6);
     return (
+        
+        <Grid container className={classes.root} spacing={8}>
+        <Grid item xs={12}>
+          <Grid container justify="center" spacing={spacing}>
+
+            
         <Card className={classes.card}>
         <CardActionArea>
-              <img src={props.product.imgurl}/>
+              <img src={props.product.imgurl} alt={props.product.id}/>
             <h3>{props.product.name}</h3><br/>
             <p>Description: {props.product.description}</p>
         </CardActionArea>
         <CardActions>
         <Router>
-        <Button size="small" color="primary" component={Link} to='./Detail' >
+        <Button size="small" color="primary" component={Link} to path='./Detail' >
           Borrow
           </Button> 
         </Router>
@@ -42,6 +49,10 @@ function Product(props) {
         </Button>
       </CardActions>
     </Card>
+          
+    </Grid>
+    </Grid>
+    </Grid>
     )
 }
 
